@@ -22,6 +22,16 @@ P.ik_perturb = 0.1;                 % perturbation de l'estimation initiale (tes
 P.tol_ik_pos = 1e-4;                % tolerance erreur de position [m]
 P.tol_ik_rot = 1e-3;                % tolerance erreur d'orientation (norme de Frobenius)
 
+% Scenario 2 : trajet cartesien avec obstacle spherique
+P.obs_frac    = 0.5;          % position de l'obstacle sur le segment A-B (0 = A, 1 = B)
+P.obs_r       = 0.05;         % rayon de l'obstacle [m]
+P.obs_marge   = 0.03;         % marge de securite exigee [m]
+P.dir_contour = [0; 0; 1];    % direction preferee de contournement (vers le haut)
+P.contour_pas = 0.005;        % pas de recherche du decalage [m]
+P.contour_max = 0.30;         % decalage maximal [m]
+P.tol_traj_pos = 1e-8;        % tolerance MGI le long de la trajectoire [m]
+P.tol_traj_rot = 1e-7;        % tolerance MGI sur l'orientation
+
 % Sorties
 P.dossier_resultats = 'resultats';
 end

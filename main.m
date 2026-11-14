@@ -8,5 +8,5 @@ P     = params();
 robot = charger_robot(P);
 
 R1 = scenario1_sans_obstacle(P, robot);
-% R2 = scenario2_obstacle(P, robot);       % a venir
+R2 = scenario2_obstacle(P, robot);       % a venir
 % R3 = scenario3_singularite(P, robot);    % a venir
