@@ -1,8 +1,11 @@
-function [q, p] = traj_cartesienne(pA, C, pB, R, T, t, q0, robot, P)
-% Trajectoire cartesienne : chemin de Bezier parcouru avec la loi minimum jerk,
+function [q, p] = traj_cartesienne(pA, C, pB, R, T, t, q0, robot, P, s)
+% Trajectoire cartesienne : chemin de Bezier parcouru avec une loi horaire s(t),
 % orientation constante R, MGI a chaque pas (solution la plus proche du pas precedent)
+% s : loi horaire normalisee 1xN de 0 a 1 (optionnelle, defaut : minimum jerk)
 % Retourne q (6xN) [rad] et p (3xN) [m]
-s = traj_minjerk(0, 1, T, t);
+if nargin < 10 || isempty(s)
+    s = traj_minjerk(0, 1, T, t);
+end
 p = bezier2(pA, C, pB, s);
 
 Pik = P;

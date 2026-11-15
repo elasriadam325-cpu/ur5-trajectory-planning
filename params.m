@@ -32,6 +32,13 @@ P.contour_max = 0.30;         % decalage maximal [m]
 P.tol_traj_pos = 1e-8;        % tolerance MGI le long de la trajectoire [m]
 P.tol_traj_rot = 1e-7;        % tolerance MGI sur l'orientation
 
+% Scenario 3 : approche d'une singularite (bras tendu, articulation 3 -> 0)
+P.s3_dir   = [-1; 0; 0];                              % direction du trajet depuis A
+P.s3_L     = [0.10 0.20 0.25 0.28 0.29 0.30 0.305];   % longueurs de trajet testees [m]
+P.s3_L_ref = 0.305;                                   % cas detaille (figures) [m]
+P.s3_L_lim = 0.306;                                   % limite d'atteinte (valeur numerique approchee) [m]
+P.s3_acc_s = 8;                                       % acceleration du LSPB sur le parametre normalise s [1/s^2]
+
 % Sorties
 P.dossier_resultats = 'resultats';
 end
